@@ -286,6 +286,50 @@ body {
   line-height: 1.4;
 }
 
+/* ── BLOQUE SANTANDER (GRANDE) ── */
+.santander-block {
+  grid-column: 1 / -1; /* Ocupa todo el ancho de la cuadrícula */
+  background: linear-gradient(135deg, rgba(37,99,235,.15), rgba(96,165,250,.05));
+  border: 1px solid rgba(96,165,250,.3);
+  border-radius: 14px;
+  padding: 24px 28px;
+  margin-top: 8px;
+}
+.santander-block h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--glow);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.santander-data {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+.santander-item {
+  flex: 1;
+  min-width: 200px;
+}
+.santander-item .si-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--muted);
+  margin-bottom: 4px;
+  letter-spacing: .5px;
+}
+.santander-item .si-value {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
 /* ── BOTÓN COPIAR ── */
 .copy-btn {
     background: rgba(96,165,250,.15);
@@ -296,7 +340,6 @@ body {
     font-size: 11px;
     font-weight: 600;
     cursor: pointer;
-    margin-left: 8px;
     transition: background .2s, transform .1s;
     font-family: 'Inter', sans-serif;
     vertical-align: middle;
@@ -493,12 +536,12 @@ body {
   .counter-num { color: #0B1120; }
   .counter-label { color: #475569; }
   .section { padding: 32px 24px; }
-  .tl-body, .profile-card, .data-item, .edu-card, .lang-card, .qr-section {
+  .tl-body, .profile-card, .data-item, .edu-card, .lang-card, .qr-section, .santander-block {
     background: #f8fafc; border-color: #e2e8f0;
   }
   .tl-body, .tl-desc, .profile-card p { color: #334155; }
-  .tl-company, .edu-degree, .lang-name, .skill-name, .data-item .di-value { color: #0B1120; }
-  .tl-role, .edu-date, .lang-level { color: #64748B; }
+  .tl-company, .edu-degree, .lang-name, .skill-name, .data-item .di-value, .santander-item .si-value { color: #0B1120; }
+  .tl-role, .edu-date, .lang-level, .santander-item .si-label { color: #64748B; }
   .photo-wrap::before, .photo-wrap::after { display: none; }
   .photo-wrap img { border: 3px solid #2563EB; }
   .skill-fill { background: #2563EB; }
@@ -507,6 +550,7 @@ body {
   .qr-section img { border: 1px solid #e2e8f0; }
   .copy-btn { display: none; }
   .dedication { color: #92400E; border-color: #F59E0B; }
+  .santander-block { background: #f0f4ff; border-color: #bfdbfe; }
 }
 
 @media (max-width: 600px) {
@@ -514,6 +558,7 @@ body {
   .tl-item { gap: 16px; }
   .edu-card { flex-direction: column; }
   .data-grid { grid-template-columns: 1fr 1fr; }
+  .santander-data { flex-direction: column; gap: 16px; }
 }
 </style>
 </head>
@@ -598,28 +643,20 @@ body {
       <div class="di-value">Juan Carlos Pérez Martínez</div>
     </div>
     <div class="data-item">
-      <div class="di-label">CURP</div>
-      <div class="di-value">PEMJ690622HDFRRN04 <button class="copy-btn" onclick="copyText('PEMJ690622HDFRRN04')">📋 Copiar</button></div>
-    </div>
-    <div class="data-item">
-      <div class="di-label">RFC</div>
-      <div class="di-value">PEMJ690622QL2 <button class="copy-btn" onclick="copyText('PEMJ690622QL2')">📋 Copiar</button></div>
-    </div>
-    <div class="data-item">
-      <div class="di-label">NSS</div>
-      <div class="di-value">28906903852 <button class="copy-btn" onclick="copyText('28906903852')">📋 Copiar</button></div>
-    </div>
-    <div class="data-item">
       <div class="di-label">Estado Civil</div>
       <div class="di-value">Casado</div>
     </div>
     <div class="data-item">
-      <div class="di-label">Número de Cuenta Santander</div>
-      <div class="di-value">56930285585 <button class="copy-btn" onclick="copyText('56930285585')">📋 Copiar</button></div>
+      <div class="di-label">CURP</div>
+      <div class="di-value">PEMJ690622HDFRRN04 <button class="copy-btn" onclick="copyText(this, 'PEMJ690622HDFRRN04')">📋 Copiar</button></div>
     </div>
     <div class="data-item">
-      <div class="di-label">CLABE Interbancaria</div>
-      <div class="di-value">014680569302855855 <button class="copy-btn" onclick="copyText('014680569302855855')">📋 Copiar</button></div>
+      <div class="di-label">RFC</div>
+      <div class="di-value">PEMJ690622QL2 <button class="copy-btn" onclick="copyText(this, 'PEMJ690622QL2')">📋 Copiar</button></div>
+    </div>
+    <div class="data-item">
+      <div class="di-label">NSS</div>
+      <div class="di-value">28906903852 <button class="copy-btn" onclick="copyText(this, '28906903852')">📋 Copiar</button></div>
     </div>
     <div class="data-item">
       <div class="di-label">Domicilio</div>
@@ -630,16 +667,23 @@ body {
       <div class="di-value">Inmediata para entrevista</div>
     </div>
     <div class="data-item">
-      <div class="di-label">Primera vez en Santander</div>
-      <div class="di-value">Sí, es mi primera vez ingresando a esta empresa</div>
+      <div class="di-label">Fecha de nacimiento</div>
+      <div class="di-value">22/06/1969</div>
     </div>
-    <div class="data-item">
-      <div class="di-label">Familiares en Santander</div>
-      <div class="di-value">No tengo familiares trabajando en Santander</div>
-    </div>
-    <div class="data-item">
-      <div class="di-label">Nómina Santander</div>
-      <div class="di-value">Sí cuento con número de nómina de Santander</div>
+
+    <!-- BLOQUE GRANDE DE SANTANDER -->
+    <div class="santander-block">
+      <h3>🏦 Datos Bancarios — Santander</h3>
+      <div class="santander-data">
+        <div class="santander-item">
+          <div class="si-label">Número de Cuenta</div>
+          <div class="si-value">56930285585 <button class="copy-btn" onclick="copyText(this, '56930285585')">📋 Copiar</button></div>
+        </div>
+        <div class="santander-item">
+          <div class="si-label">CLABE Interbancaria</div>
+          <div class="si-value">014680569302855855 <button class="copy-btn" onclick="copyText(this, '014680569302855855')">📋 Copiar</button></div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -810,10 +854,9 @@ body {
 <button class="print-fab" onclick="window.print()">📄 Descargar PDF</button>
 
 <script>
-// ── FUNCIÓN COPIAR AL PORTAPAPELES ──
-function copyText(text) {
+// ── FUNCIÓN COPIAR AL PORTAPAPELES (CORREGIDA) ──
+function copyText(btn, text) {
     navigator.clipboard.writeText(text).then(() => {
-        const btn = event.target;
         const original = btn.innerHTML;
         btn.innerHTML = '✅ ¡Copiado!';
         btn.style.background = 'rgba(34,197,94,.3)';
