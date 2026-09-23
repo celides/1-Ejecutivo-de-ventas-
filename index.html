@@ -121,8 +121,21 @@ body {
   font-size: 1.1rem;
   font-weight: 400;
   color: var(--glow);
-  margin-bottom: 36px;
+  margin-bottom: 12px;
   letter-spacing: .3px;
+}
+
+/* ── DEDICATORIA / PROVEEDOR ── */
+.dedication {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--gold);
+  margin-bottom: 30px;
+  letter-spacing: 0.5px;
+  border-top: 1px solid rgba(245,158,11,.3);
+  border-bottom: 1px solid rgba(245,158,11,.3);
+  padding: 8px 0;
+  display: inline-block;
 }
 
 /* Counters */
@@ -193,7 +206,7 @@ body {
 
 /* ── SECTION WRAPPER ── */
 .section {
-  max-width: 860px;
+  max-width: 1100px;
   margin: 0 auto;
   padding: 64px 24px;
 }
@@ -271,6 +284,28 @@ body {
   font-weight: 500;
   color: var(--white);
   line-height: 1.4;
+}
+
+/* ── BOTÓN COPIAR ── */
+.copy-btn {
+    background: rgba(96,165,250,.15);
+    border: 1px solid rgba(96,165,250,.3);
+    color: var(--glow);
+    border-radius: 5px;
+    padding: 2px 8px;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-left: 8px;
+    transition: background .2s, transform .1s;
+    font-family: 'Inter', sans-serif;
+    vertical-align: middle;
+}
+.copy-btn:hover {
+    background: rgba(96,165,250,.3);
+}
+.copy-btn:active {
+    transform: scale(0.95);
 }
 
 /* ── QR SECTION ── */
@@ -438,62 +473,6 @@ body {
 .lang-native { background: rgba(37,99,235,.15); border:1px solid rgba(37,99,235,.3); color: var(--glow); }
 .lang-inter { background: rgba(245,158,11,.1); border:1px solid rgba(245,158,11,.25); color: var(--gold); }
 
-/* ── DOCUMENTS ── */
-.docs-toggle-btn {
-  width: 100%;
-  padding: 14px 24px;
-  background: linear-gradient(135deg, var(--blue), #1d4ed8);
-  color: #fff; font-family: 'Inter', sans-serif;
-  font-size: 15px; font-weight: 700;
-  border: none; border-radius: 12px; cursor: pointer;
-  display: flex; align-items: center; justify-content: center; gap: 10px;
-  box-shadow: 0 4px 18px rgba(37,99,235,.3);
-  transition: transform .2s, box-shadow .2s;
-  margin-bottom: 20px;
-}
-.docs-toggle-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(37,99,235,.4); }
-
-.docs-inner { display: none; }
-.docs-inner.open { display: block; }
-
-.docs-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 12px;
-  margin-top: 16px;
-}
-.doc-card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 16px 18px;
-  display: flex; align-items: center; justify-content: space-between; gap: 12px;
-  transition: border-color .2s;
-}
-.doc-card:hover { border-color: rgba(96,165,250,.35); }
-.doc-name { font-size: 13.5px; font-weight: 500; color: var(--white); }
-.doc-btns { display: flex; gap: 8px; flex-shrink: 0; }
-.dbtn {
-  padding: 6px 12px; border-radius: 7px;
-  font-size: 12px; font-weight: 600;
-  text-decoration: none; transition: opacity .2s;
-}
-.dbtn:hover { opacity: .82; }
-.dbtn-v { background: rgba(37,99,235,.2); border: 1px solid rgba(37,99,235,.4); color: var(--glow); }
-.dbtn-d { background: rgba(34,197,94,.15); border: 1px solid rgba(34,197,94,.3); color: #4ade80; }
-
-.download-all {
-  display: flex; align-items: center; justify-content: center; gap: 9px;
-  width: 100%; padding: 13px;
-  background: rgba(34,197,94,.1); border: 1px solid rgba(34,197,94,.25);
-  color: #4ade80; font-family: 'Inter', sans-serif;
-  font-size: 14px; font-weight: 700;
-  border-radius: 10px; cursor: pointer;
-  transition: background .2s;
-  margin-bottom: 4px;
-}
-.download-all:hover { background: rgba(34,197,94,.18); }
-
 /* ── FOOTER ── */
 .footer {
   border-top: 1px solid var(--border);
@@ -506,7 +485,7 @@ body {
 /* ── PRINT ── */
 @media print {
   body { background: #fff; color: #111; }
-  .print-fab, .wa-fab, .docs-toggle-btn, .docs-inner,
+  .print-fab, .wa-fab,
   .scroll-hint, .hero-contact { display: none !important; }
   .hero { background: #f8fafc; min-height: auto; padding: 32px 24px; }
   .hero-name { color: #0B1120; }
@@ -526,6 +505,8 @@ body {
   .tl-badge, .achievement-highlight { border-color: #F59E0B; color: #92400E; background: #fef3c7; }
   .hero-shape { display: none; }
   .qr-section img { border: 1px solid #e2e8f0; }
+  .copy-btn { display: none; }
+  .dedication { color: #92400E; border-color: #F59E0B; }
 }
 
 @media (max-width: 600px) {
@@ -553,6 +534,9 @@ body {
 
   <h1 class="hero-name">Juan Carlos Pérez Martínez</h1>
   <p class="hero-title">Ejecutivo de Ventas &amp; Atención a Clientes · Querétaro, México</p>
+  
+  <!-- PROVEEDOR Y RECLUTADORA -->
+  <p class="dedication">Proveedor: Manpower | Reclutadora: Srita. Divian Villegas</p>
 
   <!-- ANIMATED COUNTERS -->
   <div class="counters">
@@ -615,15 +599,27 @@ body {
     </div>
     <div class="data-item">
       <div class="di-label">CURP</div>
-      <div class="di-value">PEMJ690622HDFRRN04</div>
+      <div class="di-value">PEMJ690622HDFRRN04 <button class="copy-btn" onclick="copyText('PEMJ690622HDFRRN04')">📋 Copiar</button></div>
     </div>
     <div class="data-item">
       <div class="di-label">RFC</div>
-      <div class="di-value">PEMJ690622QL2</div>
+      <div class="di-value">PEMJ690622QL2 <button class="copy-btn" onclick="copyText('PEMJ690622QL2')">📋 Copiar</button></div>
     </div>
     <div class="data-item">
       <div class="di-label">NSS</div>
-      <div class="di-value">28906903852</div>
+      <div class="di-value">28906903852 <button class="copy-btn" onclick="copyText('28906903852')">📋 Copiar</button></div>
+    </div>
+    <div class="data-item">
+      <div class="di-label">Estado Civil</div>
+      <div class="di-value">Casado</div>
+    </div>
+    <div class="data-item">
+      <div class="di-label">Número de Cuenta Santander</div>
+      <div class="di-value">56930285585 <button class="copy-btn" onclick="copyText('56930285585')">📋 Copiar</button></div>
+    </div>
+    <div class="data-item">
+      <div class="di-label">CLABE Interbancaria</div>
+      <div class="di-value">014680569302855855 <button class="copy-btn" onclick="copyText('014680569302855855')">📋 Copiar</button></div>
     </div>
     <div class="data-item">
       <div class="di-label">Domicilio</div>
@@ -633,11 +629,23 @@ body {
       <div class="di-label">Disponibilidad</div>
       <div class="di-value">Inmediata para entrevista</div>
     </div>
+    <div class="data-item">
+      <div class="di-label">Primera vez en Santander</div>
+      <div class="di-value">Sí, es mi primera vez ingresando a esta empresa</div>
+    </div>
+    <div class="data-item">
+      <div class="di-label">Familiares en Santander</div>
+      <div class="di-value">No tengo familiares trabajando en Santander</div>
+    </div>
+    <div class="data-item">
+      <div class="di-label">Nómina Santander</div>
+      <div class="di-value">Sí cuento con número de nómina de Santander</div>
+    </div>
   </div>
 
   <!-- CÓDIGO QR -->
   <div class="qr-section">
-    <img src="https://raw.githubusercontent.com/celides/Ejecutivo-de-Ventas-y-Atenci-n-a-Clientes/main/codigo-qr-cv-virtual.png" alt="Código QR CV Virtual">
+    <img src="https://raw.githubusercontent.com/celides/1-Ejecutivo-de-ventas-/main/qr-code.png" alt="Código QR CV Virtual">
     <p>Escanea para ver mi CV Virtual</p>
   </div>
 </div>
@@ -667,7 +675,8 @@ body {
         <div class="tl-company">Rentología</div>
         <div class="tl-role">Fundador — Administración y Venta de Propiedades</div>
         <div class="tl-desc">
-          Venta telefónica y presencial del servicio de administración, maximización y posicionamiento de renta de propiedades. Gestión integral del ciclo comercial: prospección, negociación y cierre.
+          Venta telefónica y presencial del servicio de administración, maximización y posicionamiento de renta de propiedades. Gestión integral del ciclo comercial: prospección, negociación y cierre.<br>
+          <strong style="color: var(--gold);">Negocio propio, no registrado ante el IMSS.</strong>
         </div>
         <div class="tl-badge">⭐ Rentabilidad duplicada: $6,000 → $12,000 por propiedad</div>
       </div>
@@ -679,8 +688,30 @@ body {
         <div class="tl-date">1995 — 2014 · 19 años</div>
         <div class="tl-company">Fashion Celular</div>
         <div class="tl-role">Gerente y Propietario — Querétaro, México</div>
-        <div class="tl-desc">Venta de contratos de telefonía celular e internet. Gestión de inventarios, personal y relación con proveedores Telmex y Movistar.</div>
+        <div class="tl-desc">Venta de contratos de telefonía celular e internet. Gestión de inventarios, personal y relación con proveedores Telmex y Movistar.<br>
+          <strong style="color: var(--gold);">Negocio propio, no registrado ante el IMSS.</strong>
+        </div>
         <div class="tl-badge">⭐ Crecimiento sostenido de cartera de clientes</div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot">📋</div>
+      <div class="tl-body">
+        <div class="tl-date">27/03/2000 — 01/05/2000</div>
+        <div class="tl-company">AFORE SANTANDER, S.A. DE C.V.</div>
+        <div class="tl-role">Registro Patronal: Y521854810 — Ciudad de México</div>
+        <div class="tl-desc">Periodo registrado ante el IMSS.</div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot">📋</div>
+      <div class="tl-body">
+        <div class="tl-date">10/11/1999 — 31/03/2000</div>
+        <div class="tl-company">DISTRIBUIDORA FERRETERA LAVI, S.A. DE C.V.</div>
+        <div class="tl-role">Registro Patronal: E235645210 — Querétaro, Qro.</div>
+        <div class="tl-desc">Periodo registrado ante el IMSS.</div>
       </div>
     </div>
 
@@ -769,100 +800,9 @@ body {
   </div>
 </div>
 
-<!-- DOCUMENTOS -->
-<div class="section">
-  <p class="sec-label">Expediente digital</p>
-  <h2 class="sec-title">Documentos</h2>
-  <div class="sec-divider"></div>
-  <button class="docs-toggle-btn" onclick="toggleDocs(this)">
-    <span>📂</span> <span>Ver documentos del candidato</span>
-  </button>
-  <div class="docs-inner" id="docsInner">
-    <button class="download-all" onclick="downloadAll()">
-      📥 Descargar todos los documentos
-    </button>
-    <div class="docs-grid">
-      <div class="doc-card">
-        <span class="doc-name">Acta de Nacimiento</span>
-        <div class="doc-btns">
-          <a href="https://raw.githubusercontent.com/celides/Ejecutivo-de-Ventas-y-Atenci-n-a-Clientes/main/1%20Acta%20de%20nacimiento%20nuevo%20formato%20juan%20carlos.jpg" target="_blank" class="dbtn dbtn-v">Ver</a>
-          <a href="https://raw.githubusercontent.com/celides/Ejecutivo-de-Ventas-y-Atenci-n-a-Clientes/main/1%20Acta%20de%20nacimiento%20nuevo%20formato%20juan%20carlos.jpg" download class="dbtn dbtn-d">↓</a>
-        </div>
-      </div>
-      <div class="doc-card">
-        <span class="doc-name">Cartilla Militar</span>
-        <div class="doc-btns">
-          <a href="https://raw.githubusercontent.com/celides/Ejecutivo-de-Ventas-y-Atenci-n-a-Clientes/main/CARTILLA.JPG" target="_blank" class="dbtn dbtn-v">Ver</a>
-          <a href="https://raw.githubusercontent.com/celides/Ejecutivo-de-Ventas-y-Atenci-n-a-Clientes/main/CARTILLA.JPG" download class="dbtn dbtn-d">↓</a>
-        </div>
-      </div>
-      <div class="doc-card">
-        <span class="doc-name">Título Profesional</span>
-        <div class="doc-btns">
-          <a href="https://raw.githubusercontent.com/celides/Ejecutivo-de-Ventas-y-Atenci-n-a-Clientes/main/TITULOTAMA%C3%91O-CARTAFRENTE--web.jpg" target="_blank" class="dbtn dbtn-v">Ver</a>
-          <a href="https://raw.githubusercontent.com/celides/Ejecutivo-de-Ventas-y-Atenci-n-a-Clientes/main/TITULOTAMA%C3%91O-CARTAFRENTE--web.jpg" download class="dbtn dbtn-d">↓</a>
-        </div>
-      </div>
-<div class="doc-card">
-  <span class="doc-name">Credencial INE (Frente y Reverso)</span>
-  <div class="doc-btns">
-    <!-- CORREGIDO: Nuevo enlace de la credencial INE -->
-    <a href="https://raw.githubusercontent.com/celides/Ejecutivo-de-Ventas-y-Atenci-n-a-Clientes/main/credencial_ine_carta.jpg" target="_blank" class="dbtn dbtn-v">Ver</a>
-    <a href="https://raw.githubusercontent.com/celides/Ejecutivo-de-Ventas-y-Atenci-n-a-Clientes/main/credencial_ine_carta.jpg" download class="dbtn dbtn-d">↓</a>
-  </div>
-</div>
-      </div>
-      <div class="doc-card">
-        <span class="doc-name">INE — Frente</span>
-        <div class="doc-btns">
-          <a href="https://raw.githubusercontent.com/celides/Ejecutivo-de-Ventas-y-Atenci-n-a-Clientes/main/INE%20FRONTAL.jpg" target="_blank" class="dbtn dbtn-v">Ver</a>
-          <a href="https://raw.githubusercontent.com/celides/Ejecutivo-de-Ventas-y-Atenci-n-a-Clientes/main/INE%20FRONTAL.jpg" download class="dbtn dbtn-d">↓</a>
-        </div>
-      </div>
-      <div class="doc-card">
-        <span class="doc-name">INE — Reverso</span>
-        <div class="doc-btns">
-          <a href="https://raw.githubusercontent.com/celides/Ejecutivo-de-Ventas-y-Atenci-n-a-Clientes/main/INE%20TRADERA.jpg" target="_blank" class="dbtn dbtn-v">Ver</a>
-          <a href="https://raw.githubusercontent.com/celides/Ejecutivo-de-Ventas-y-Atenci-n-a-Clientes/main/INE%20TRADERA.jpg" download class="dbtn dbtn-d">↓</a>
-        </div>
-      </div>
-      <div class="doc-card">
-        <span class="doc-name">NSS</span>
-        <div class="doc-btns">
-          <a href="https://raw.githubusercontent.com/celides/Ejecutivo-de-Ventas-y-Atenci-n-a-Clientes/main/NSS.jpg" target="_blank" class="dbtn dbtn-v">Ver</a>
-          <a href="https://raw.githubusercontent.com/celides/Ejecutivo-de-Ventas-y-Atenci-n-a-Clientes/main/NSS.jpg" download class="dbtn dbtn-d">↓</a>
-        </div>
-      </div>
-      <div class="doc-card">
-        <span class="doc-name">RFC — Portada</span>
-        <div class="doc-btns">
-          <a href="https://raw.githubusercontent.com/celides/Ejecutivo-de-Ventas-y-Atenci-n-a-Clientes/main/1%20SAT%20PORTADA.jpg" target="_blank" class="dbtn dbtn-v">Ver</a>
-          <a href="https://raw.githubusercontent.com/celides/Ejecutivo-de-Ventas-y-Atenci-n-a-Clientes/main/1%20SAT%20PORTADA.jpg" download class="dbtn dbtn-d">↓</a>
-        </div>
-      </div>
-      <div class="doc-card">
-        <span class="doc-name">RFC — Trasera</span>
-        <div class="doc-btns">
-          <a href="https://raw.githubusercontent.com/celides/Ejecutivo-de-Ventas-y-Atenci-n-a-Clientes/main/2%20SAT%20TRASERA.jpg" target="_blank" class="dbtn dbtn-v">Ver</a>
-          <a href="https://raw.githubusercontent.com/celides/Ejecutivo-de-Ventas-y-Atenci-n-a-Clientes/main/2%20SAT%20TRASERA.jpg" download class="dbtn dbtn-d">↓</a>
-        </div>
-      </div>
-      <div class="doc-card">
-  <span class="doc-name">Comprobante de Domicilio (CFE)</span>
-  <div class="doc-btns">
-    <a href="https://raw.githubusercontent.com/celides/Ejecutivo-de-Ventas-y-Atenci-n-a-Clientes/main/comprobante_de_domicilio.jpg" target="_blank" class="dbtn dbtn-v">Ver</a>
-    <a href="https://raw.githubusercontent.com/celides/Ejecutivo-de-Ventas-y-Atenci-n-a-Clientes/main/comprobante_de_domicilio.jpg" download class="dbtn dbtn-d">↓</a>
-  </div>
-</div>
-      </div>
-      
-      </div>
-    </div>
-  </div>
-</div>
-
 <footer class="footer">
-  Juan Carlos Pérez Martínez · celides10@gmail.com · Querétaro, México
+  <p>Juan Carlos Pérez Martínez · celides10@gmail.com · Querétaro, México</p>
+  <p style="margin-top: 8px; font-size: 12px; color: var(--glow);">Documento preparado para el proceso de selección de la <strong>Srita. Divian Villegas</strong> — Proveedor: <strong>Manpower</strong></p>
 </footer>
 
 <!-- FABS -->
@@ -870,6 +810,24 @@ body {
 <button class="print-fab" onclick="window.print()">📄 Descargar PDF</button>
 
 <script>
+// ── FUNCIÓN COPIAR AL PORTAPAPELES ──
+function copyText(text) {
+    navigator.clipboard.writeText(text).then(() => {
+        const btn = event.target;
+        const original = btn.innerHTML;
+        btn.innerHTML = '✅ ¡Copiado!';
+        btn.style.background = 'rgba(34,197,94,.3)';
+        btn.style.color = '#4ade80';
+        setTimeout(() => {
+            btn.innerHTML = original;
+            btn.style.background = '';
+            btn.style.color = '';
+        }, 1500);
+    }).catch(err => {
+        alert('Error al copiar: ' + err);
+    });
+}
+
 // ── COUNTER ANIMATION ──
 function animateCounter(el) {
   const target   = +el.dataset.target;
@@ -911,33 +869,6 @@ const io = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.counter-num').forEach(el => io.observe(el));
 io.observe(document.getElementById('skillList'));
-
-// ── DOCS TOGGLE ──
-function toggleDocs(btn) {
-  const inner = document.getElementById('docsInner');
-  const isOpen = inner.classList.toggle('open');
-  btn.querySelector('span:last-child').textContent = isOpen
-    ? 'Ocultar documentos'
-    : 'Ver documentos del candidato';
-}
-
-// ── DOWNLOAD ALL ──
-function downloadAll() {
-  const urls = [
-    'https://raw.githubusercontent.com/celides/Ejecutivo-de-Ventas-y-Atenci-n-a-Clientes/main/1%20Acta%20de%20nacimiento%20nuevo%20formato%20juan%20carlos.jpg',
-    'https://raw.githubusercontent.com/celides/Ejecutivo-de-Ventas-y-Atenci-n-a-Clientes/main/CARTILLA.JPG',
-    'https://raw.githubusercontent.com/celides/Ejecutivo-de-Ventas-y-Atenci-n-a-Clientes/main/TITULOTAMA%C3%91O-CARTAFRENTE--web.jpg',
-    'https://raw.githubusercontent.com/celides/Ejecutivo-de-Ventas-y-Atenci-n-a-Clientes/main/credencial_ine_carta.jpg',
-    'https://raw.githubusercontent.com/celides/Ejecutivo-de-Ventas-y-Atenci-n-a-Clientes/main/INE%20FRONTAL.jpg',
-    'https://raw.githubusercontent.com/celides/Ejecutivo-de-Ventas-y-Atenci-n-a-Clientes/main/INE%20TRADERA.jpg',
-    'https://raw.githubusercontent.com/celides/Ejecutivo-de-Ventas-y-Atenci-n-a-Clientes/main/NSS.jpg',
-    'https://raw.githubusercontent.com/celides/Ejecutivo-de-Ventas-y-Atenci-n-a-Clientes/main/1%20SAT%20PORTADA.jpg',
-    'https://raw.githubusercontent.com/celides/Ejecutivo-de-Ventas-y-Atenci-n-a-Clientes/main/2%20SAT%20TRASERA.jpg',
-    'https://raw.githubusercontent.com/celides/Ejecutivo-de-Ventas-y-Atenci-n-a-Clientes/main/recibo_cfe-4.pdf',
-    'https://raw.githubusercontent.com/celides/Ejecutivo-de-Ventas-y-Atenci-n-a-Clientes/main/INE_CARTA.pdf'
-  ];
-  urls.forEach((url, i) => setTimeout(() => window.open(url, '_blank'), i * 350));
-}
 </script>
 </body>
 </html>
